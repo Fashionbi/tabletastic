@@ -25,3 +25,4 @@ doc/
 *.gem
 .bundle
 log
+Gemfile.lock
