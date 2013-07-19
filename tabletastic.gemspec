@@ -1,31 +1,34 @@
-lib = File.expand_path('../lib/', __FILE__)
-$:.unshift lib unless $:.include?(lib)
-
-require 'tabletastic/version'
+# -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name     = 'tabletastic'
-  s.version  = Tabletastic::VERSION
-  s.platform = Gem::Platform::RUBY
+  s.name = "tabletastic"
+  s.version = "0.2.3"
 
-  s.authors  = ["Joshua Davey"]
-  s.email    = 'josh@joshuadavey.com'
-  s.homepage = 'http://github.com/jgdavey/tabletastic'
-  s.date     = '2011-08-10'
-
-  s.summary  = 'A smarter table builder for Rails collections'
-  s.description = <<-EOT
-    A table builder for active record collections that
-    produces semantically rich and accessible table markup
-  EOT
-
+  s.required_rubygems_version = Gem::Requirement.new(">= 1.3.6") if s.respond_to? :required_rubygems_version=
+  s.authors = ["Joshua Davey"]
+  s.date = "2011-08-10"
+  s.description = "    A table builder for active record collections that\n    produces semantically rich and accessible table markup\n"
+  s.email = "josh@joshuadavey.com"
   s.extra_rdoc_files = ["README.rdoc", "LICENSE"]
-  s.files = Dir.glob("{bin,lib}/**/*") + %w(LICENSE README.rdoc CHANGELOG.rdoc init.rb)
+  s.files = ["lib/tabletastic", "lib/tabletastic/helper.rb", "lib/tabletastic/table_builder.rb", "lib/tabletastic/table_field.rb", "lib/tabletastic/version.rb", "lib/tabletastic.rb", "LICENSE", "README.rdoc", "CHANGELOG.rdoc", "init.rb", "spec/tabletastic/table_builder_spec.rb", "spec/tabletastic/table_field_spec.rb", "spec/tabletastic_spec.rb", "spec/spec_helper.rb"]
+  s.homepage = "http://github.com/jgdavey/tabletastic"
+  s.require_paths = ["lib"]
+  s.rubygems_version = "2.0.5"
+  s.summary = "A smarter table builder for Rails collections"
+  s.test_files = ["spec/tabletastic/table_builder_spec.rb", "spec/tabletastic/table_field_spec.rb", "spec/tabletastic_spec.rb", "spec/spec_helper.rb"]
 
-  s.require_path = 'lib'
-  s.required_rubygems_version = ">= 1.3.6"
-  s.add_runtime_dependency('activesupport', '~> 3.0')
-  s.test_files = Dir.glob("spec/**/*_spec.rb") + %w{spec/spec_helper.rb}
-  s.add_development_dependency "rspec"
+  if s.respond_to? :specification_version then
+    s.specification_version = 4
+
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<activesupport>, ["~> 3.0"])
+      s.add_development_dependency(%q<rspec>, [">= 0"])
+    else
+      s.add_dependency(%q<activesupport>, ["~> 3.0"])
+      s.add_dependency(%q<rspec>, [">= 0"])
+    end
+  else
+    s.add_dependency(%q<activesupport>, ["~> 3.0"])
+    s.add_dependency(%q<rspec>, [">= 0"])
+  end
 end
-
