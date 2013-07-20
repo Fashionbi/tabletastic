@@ -59,7 +59,7 @@ module Tabletastic
       options.merge!(:klass => klass)
       args << options
       @table_fields << TableField.new(*args, &proc)
-      # Since this will likely be called with <%= %> (aka 'concat'), explicitly return an 
+      # Since this will likely be called with <%= %> (aka 'concat'), explicitly return an
       # empty string; this suppresses unwanted output
       return ""
     end
@@ -103,7 +103,6 @@ module Tabletastic
 
     # Dynamically builds links for the action
     def action_link(action, prefix)
-      #html_class = "actions #{action.to_s}_link"
       html_class = "actions #{Tabletastic.default_actions_link_class[action.to_sym]}"
       block = lambda do |resource|
         compound_resource = [prefix, resource].compact
@@ -120,7 +119,7 @@ module Tabletastic
                             :class => html_class)
         end
       end
-      self.cell(action, :heading => "", :cell_html => {:class => html_class}, &block)
+      self.cell(action, :heading => "", :cell_html => {:class => "actions #{action.to_s}_link"}, &block)
     end
 
     protected
