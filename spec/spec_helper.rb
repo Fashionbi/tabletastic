@@ -8,9 +8,7 @@ require 'rspec_tag_matchers'
 require 'active_record'
 require 'action_controller'
 
-require 'action_view/base'
-require 'action_view/template'
-require 'action_view/helpers'
+require 'action_view'
 
 RSpec.configure do |config|
   config.include(RspecTagMatchers)
